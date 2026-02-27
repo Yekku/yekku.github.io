@@ -373,27 +373,26 @@ a.dotted-link:hover {
   font-size: 18px;
 }
 
-/* Hide extra links/elements from github-calendar widget */
-.github-graph .contrib-footer,
-.github-graph .calendar-graph text.wday,
-.github-graph .js-skip-to-content,
-.github-graph .position-absolute,
-.github-graph .border,
-.github-graph .float-left,
-.github-graph .width-full,
-.github-graph a[href*="count-contributions"],
-.github-graph a[href*="contributions-calendar"],
-.github-graph a[href*="year-link"] {
+/* Hide extra links/text from github-calendar widget */
+.github-graph .contrib-footer {
   display: none !important;
 }
 
-/* Only show the SVG calendar graph, hide everything else that's not the graph */
-.github-graph > div > :not(.js-yearly-contributions):not(.graph-before-activity-overview) {
+.github-graph .calendar-graph text.wday {
   display: none !important;
 }
 
-/* Hide the "Learn how we count contributions" and "Skip to" links */
-.github-graph a:not(.ContributionCalendar-day) {
+.github-graph .position-absolute {
+  display: none !important;
+}
+
+/* Hide "Learn how we count contributions" link */
+.github-graph a[href*="count-contributions"] {
+  display: none !important;
+}
+
+/* Hide "Skip to contributions year list" link */
+.github-graph a[href*="contributions-calendar"] {
   display: none !important;
 }
 
