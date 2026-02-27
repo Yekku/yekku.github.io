@@ -374,15 +374,22 @@ a.dotted-link:hover {
 }
 
 /* GitHub calendar day cells — borders like original GitHub */
-.github-graph .js-calendar-graph-svg rect {
+.github-graph rect {
   stroke: #e1e4e8;
   stroke-width: 1;
   shape-rendering: geometricPrecision;
+  rx: 2;
+  ry: 2;
 }
 
-/* Hide any leftover elements the JS cleanup might miss */
+/* Hide stats and leftover elements */
 .github-graph .contrib-footer,
+.github-graph .contrib-column,
 .github-graph .position-absolute {
+  display: none !important;
+}
+
+.github-graph table.contrib-column {
   display: none !important;
 }
 

@@ -44,8 +44,15 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             // Remove the stats footer (0 total, 0 days streak, etc.)
-            graph.querySelectorAll('.contrib-footer, .contribution-activity').forEach(function (el) {
+            graph.querySelectorAll('.contrib-column, .contrib-footer, .contribution-activity').forEach(function (el) {
                 el.remove();
+            });
+
+            // Also remove the table row containing the stats
+            graph.querySelectorAll('table').forEach(function (table) {
+                if (table.querySelector('.contrib-number')) {
+                    table.remove();
+                }
             });
         };
 
