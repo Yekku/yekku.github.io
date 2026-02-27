@@ -374,14 +374,32 @@ a.dotted-link:hover {
 }
 
 .ghfeed {
-  height: 500px;
+  max-height: 400px;
+  overflow-y: auto;
 }
 
-.ghfeed,
-.ghfeed *,
-.ghfeed *:before,
-.ghfeed *:after {
-  box-sizing: content-box;
+.ghfeed-event {
+  padding: 8px 0;
+  border-bottom: 1px solid #e8e8e8;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.ghfeed-event:last-child {
+  border-bottom: none;
+}
+
+.ghfeed-date {
+  color: #999;
+  font-size: 13px;
+}
+
+.ghfeed-action {
+  color: #555;
+}
+
+.ghfeed-event a {
+  color: #3AAA64;
 }
 
 /* Info Section */

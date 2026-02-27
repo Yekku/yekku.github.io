@@ -26,12 +26,75 @@ document.addEventListener('DOMContentLoaded', function () {
 
     /* Github Calendar - https://github.com/IonicaBizau/github-calendar */
     if (typeof GitHubCalendar !== 'undefined') {
-        new GitHubCalendar('#github-graph', 'Yekku');
+        GitHubCalendar('#github-graph', 'Yekku', { responsive: true });
     }
 
-    /* Github Activity Feed - https://github.com/caseyscarborough/github-activity */
-    if (typeof GitHubActivity !== 'undefined') {
-        GitHubActivity.feed({ username: 'Yekku', selector: '#ghfeed' });
-    }
+    /* Github Activity Feed - using GitHub public events API */
+    fetchGitHubActivity('Yekku', '#ghfeed');
 
 });
+
+function fetchGitHubActivity(username, selector) {
+    var container = document.querySelector(selector);
+    if (!container) return;
+
+    container.innerHTML = '<p>Loading activity...</p>';
+
+    fetch('https://api.github.com/users/' + username + '/events/public?per_page=10')
+        .then(function (response) { return response.json(); })
+        .then(function (events) {
+            if (!events.length) {
+                container.innerHTML = '<p>No recent activity.</p>';
+                return;
+            }
+
+            var html = '<div class="github-activity-feed">';
+            events.forEach(function (event) {
+                var action = '';
+                var repo = event.repo ? event.repo.name : '';
+                var repoUrl = 'https://github.com/' + repo;
+                var date = new Date(event.created_at).toLocaleDateString('en-US', {
+                    month: 'short', day: 'numeric', year: 'numeric'
+                });
+
+                switch (event.type) {
+                    case 'PushEvent':
+                        var count = event.payload.commits ? event.payload.commits.length : 0;
+                        action = 'Pushed ' + count + ' commit' + (count !== 1 ? 's' : '') + ' to';
+                        break;
+                    case 'CreateEvent':
+                        action = 'Created ' + (event.payload.ref_type || 'repository');
+                        if (event.payload.ref) action += ' <strong>' + event.payload.ref + '</strong> in';
+                        break;
+                    case 'WatchEvent':
+                        action = 'Starred';
+                        break;
+                    case 'ForkEvent':
+                        action = 'Forked';
+                        break;
+                    case 'IssuesEvent':
+                        action = event.payload.action.charAt(0).toUpperCase() + event.payload.action.slice(1) + ' an issue in';
+                        break;
+                    case 'PullRequestEvent':
+                        action = event.payload.action.charAt(0).toUpperCase() + event.payload.action.slice(1) + ' a pull request in';
+                        break;
+                    case 'DeleteEvent':
+                        action = 'Deleted ' + (event.payload.ref_type || '') + ' in';
+                        break;
+                    default:
+                        action = event.type.replace('Event', '') + ' in';
+                }
+
+                html += '<div class="ghfeed-event">';
+                html += '<span class="ghfeed-date">' + date + '</span> ';
+                html += '<span class="ghfeed-action">' + action + '</span> ';
+                html += '<a href="' + repoUrl + '" target="_blank" rel="noopener noreferrer">' + repo + '</a>';
+                html += '</div>';
+            });
+            html += '</div>';
+            container.innerHTML = html;
+        })
+        .catch(function () {
+            container.innerHTML = '<p>Unable to load activity.</p>';
+        });
+}
