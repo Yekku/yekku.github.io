@@ -373,9 +373,26 @@ a.dotted-link:hover {
   font-size: 18px;
 }
 
+/* Hide extra links from github-calendar widget */
+.github-graph .contrib-footer,
+.github-graph .calendar-graph text.wday,
+.github-graph a[href*="count-contributions"],
+.github-graph .js-skip-to-content,
+.github-graph [href="#contributions-calendar"] {
+  display: none;
+}
+
+.github-graph .position-absolute {
+  display: none !important;
+}
+
 .ghfeed {
   max-height: 400px;
   overflow-y: auto;
+}
+
+.ghfeed:empty {
+  display: none;
 }
 
 .ghfeed-event {
