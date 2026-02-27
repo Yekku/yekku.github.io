@@ -60,6 +60,7 @@ function fetchGitHubActivity(username, selector) {
                 switch (event.type) {
                     case 'PushEvent':
                         var count = event.payload.commits ? event.payload.commits.length : 0;
+                        if (count === 0) return; // Skip empty pushes
                         action = 'Pushed ' + count + ' commit' + (count !== 1 ? 's' : '') + ' to';
                         break;
                     case 'CreateEvent':
