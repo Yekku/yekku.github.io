@@ -27,6 +27,37 @@ document.addEventListener('DOMContentLoaded', function () {
     /* Github Calendar - https://github.com/IonicaBizau/github-calendar */
     if (typeof GitHubCalendar !== 'undefined') {
         GitHubCalendar('#github-graph', 'Yekku', { responsive: true });
+
+        // Clean up extra elements injected by the calendar widget
+        var calendarCleanup = function () {
+            var graph = document.getElementById('github-graph');
+            if (!graph) return;
+
+            // Remove links by their text content
+            graph.querySelectorAll('a').forEach(function (a) {
+                var text = a.textContent.trim().toLowerCase();
+                if (text.indexOf('skip to') !== -1 ||
+                    text.indexOf('learn how') !== -1 ||
+                    text.indexOf('count contributions') !== -1) {
+                    a.remove();
+                }
+            });
+
+            // Remove the stats footer (0 total, 0 days streak, etc.)
+            graph.querySelectorAll('.contrib-footer, .contribution-activity').forEach(function (el) {
+                el.remove();
+            });
+        };
+
+        // Run cleanup after calendar loads (observe for changes)
+        var observer = new MutationObserver(function (mutations, obs) {
+            var svg = document.querySelector('#github-graph svg');
+            if (svg) {
+                calendarCleanup();
+                obs.disconnect();
+            }
+        });
+        observer.observe(document.getElementById('github-graph'), { childList: true, subtree: true });
     }
 
     /* Github Activity Feed - using GitHub public events API */

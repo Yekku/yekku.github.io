@@ -373,26 +373,16 @@ a.dotted-link:hover {
   font-size: 18px;
 }
 
-/* Hide extra links/text from github-calendar widget */
-.github-graph .contrib-footer {
-  display: none !important;
+/* GitHub calendar day cells — borders like original GitHub */
+.github-graph .js-calendar-graph-svg rect {
+  stroke: #e1e4e8;
+  stroke-width: 1;
+  shape-rendering: geometricPrecision;
 }
 
-.github-graph .calendar-graph text.wday {
-  display: none !important;
-}
-
+/* Hide any leftover elements the JS cleanup might miss */
+.github-graph .contrib-footer,
 .github-graph .position-absolute {
-  display: none !important;
-}
-
-/* Hide "Learn how we count contributions" link */
-.github-graph a[href*="count-contributions"] {
-  display: none !important;
-}
-
-/* Hide "Skip to contributions year list" link */
-.github-graph a[href*="contributions-calendar"] {
   display: none !important;
 }
 
