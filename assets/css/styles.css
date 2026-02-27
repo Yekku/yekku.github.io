@@ -42,15 +42,9 @@ a:focus {
   font-weight: bold;
 }
 
-.btn .svg-inline--fa,
-.btn .fa-solid,
-.btn .fa-brands,
-a.btn .svg-inline--fa,
-a.btn .fa-solid,
-a.btn .fa-brands {
+.btn i,
+a.btn i {
   margin-right: 5px;
-  position: relative;
-  top: -2px;
 }
 
 .btn:focus, a.btn:focus {
@@ -142,20 +136,21 @@ a.dotted-link:hover {
   background: #b0b7bf;
   width: 36px;
   height: 36px;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 50%;
   color: #fff;
-  text-align: center;
+  text-decoration: none;
 }
 
 .header .profile-content .social a:hover {
   background: #778492;
+  text-decoration: none;
 }
 
-.header .profile-content .social a .svg-inline--fa,
-.header .profile-content .social a .fa-brands {
-  font-size: 20px;
-  margin-top: 8px;
+.header .profile-content .social a i {
+  font-size: 18px;
 }
 
 /* ======= Sections======= */
@@ -180,12 +175,9 @@ a.dotted-link:hover {
   font-size: 24px;
 }
 
-.section .content .more-link .svg-inline--fa,
-.section .content .more-link .fa-solid {
+.section .content .more-link i {
   margin-right: 5px;
   font-size: 14px;
-  position: relative;
-  top: -2px;
 }
 
 /* About Section */
@@ -369,15 +361,9 @@ a.dotted-link:hover {
 }
 
 /* Info Section */
-.info .svg-inline--fa,
-.info .fa-solid {
+.info i {
   margin-right: 15px;
   color: #ccd1d6;
-}
-
-.info .svg-inline--fa.fa-envelope-o,
-.info .fa-solid.fa-envelope-o {
-  font-size: 14px;
 }
 
 .info ul {
@@ -428,11 +414,8 @@ a.dotted-link:hover {
   background: #66cb8c;
 }
 
-.skills .svg-inline--fa,
-.skills .fa-solid {
+.skills i {
   margin-right: 3px;
-  position: relative;
-  top: -1px;
 }
 
 /* Testimonials section */
@@ -456,8 +439,7 @@ a.dotted-link:hover {
   margin-bottom: 0;
 }
 
-.testimonials .item .quote .svg-inline--fa,
-.testimonials .item .quote .fa-solid {
+.testimonials .item .quote i {
   color: #79d19a;
   margin-right: 15px;
 }
@@ -521,8 +503,7 @@ a.dotted-link:hover {
   margin-bottom: 0;
 }
 
-.languages .item .svg-inline--fa,
-.languages .item .fa-solid {
+.languages .item i {
   color: #79d19a;
 }
 
@@ -557,8 +538,7 @@ a.dotted-link:hover {
   margin-bottom: 10px;
 }
 
-.list ul li .svg-inline--fa,
-.list ul li .fa-solid {
+.list ul li i {
   margin-right: 5px;
 }
 
@@ -575,19 +555,15 @@ a.dotted-link:hover {
   margin-bottom: 10px;
 }
 
-.credits ul li .svg-inline--fa,
-.credits ul li .fa-solid {
+.credits ul li i {
   margin-right: 5px;
-  position: relative;
-  top: -2px;
 }
 
 .credits ul li a {
   color: #778492;
 }
 
-.credits ul li a .svg-inline--fa,
-.credits ul li a .fa-solid {
+.credits ul li a i {
   color: #b0b7bf;
 }
 
