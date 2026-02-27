@@ -107,8 +107,15 @@ a.dotted-link:hover {
   border-top: 10px solid #778492;
 }
 
+.header > .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
 .header .btn {
   margin-top: 30px;
+  margin-left: auto;
   font-weight: bold;
 }
 
@@ -119,7 +126,7 @@ a.dotted-link:hover {
 
 .header .profile-content {
   flex: 1;
-  min-width: 0;
+  min-width: 200px;
 }
 
 .header .profile-content .name {
@@ -139,7 +146,16 @@ a.dotted-link:hover {
 }
 
 .header .profile-content .social {
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
   margin-bottom: 0;
+}
+
+.header .profile-content .social li {
+  list-style: none;
 }
 
 .header .profile-content .social a {
