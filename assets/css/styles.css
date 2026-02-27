@@ -1,11 +1,11 @@
-/*!   
+/*!
  * Template Name: Developer - Responsive Website Template for Developers
- * Version: 2.1
+ * Version: 3.0
  * Author: Xiaoying Riley
- * Twitter: @3rdwave_themes
  * License: Creative Commons Attribution 3.0 License
  * Website: https://themes.3rdwavemedia.com/
-*/
+ * Modernized: Vendor prefixes removed, Bootstrap 5 + FontAwesome 6 compatible
+ */
 body {
   font-family: 'Lato', arial, sans-serif;
   color: #434343;
@@ -23,15 +23,11 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
   color: #3AAA64;
-  -webkit-transition: all 0.4s ease-in-out;
-  -moz-transition: all 0.4s ease-in-out;
-  -ms-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
 a:hover {
   text-decoration: underline;
-  color: #5f6b77;
   color: #2d844e;
 }
 
@@ -40,16 +36,18 @@ a:focus {
 }
 
 .btn, a.btn {
-  -webkit-transition: all 0.4s ease-in-out;
-  -moz-transition: all 0.4s ease-in-out;
-  -ms-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
   font-family: 'Montserrat', arial, sans-serif;
   padding: 8px 16px;
   font-weight: bold;
 }
 
-.btn .svg-inline--fa, a.btn .svg-inline--fa {
+.btn .svg-inline--fa,
+.btn .fa-solid,
+.btn .fa-brands,
+a.btn .svg-inline--fa,
+a.btn .fa-solid,
+a.btn .fa-brands {
   margin-right: 5px;
   position: relative;
   top: -2px;
@@ -95,14 +93,7 @@ a.btn-cta-secondary:hover, .btn-cta-secondary:hover {
   background: #3AAA64;
   font-size: 12px;
   color: #fff;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -ms-border-radius: 2px;
-  -o-border-radius: 2px;
   border-radius: 2px;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
 }
 
 a.dotted-link {
@@ -152,14 +143,7 @@ a.dotted-link:hover {
   width: 36px;
   height: 36px;
   display: inline-block;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
   border-radius: 50%;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
   color: #fff;
   text-align: center;
 }
@@ -168,7 +152,8 @@ a.dotted-link:hover {
   background: #778492;
 }
 
-.header .profile-content .social a .svg-inline--fa {
+.header .profile-content .social a .svg-inline--fa,
+.header .profile-content .social a .fa-brands {
   font-size: 20px;
   margin-top: 8px;
 }
@@ -195,7 +180,8 @@ a.dotted-link:hover {
   font-size: 24px;
 }
 
-.section .content .more-link .svg-inline--fa {
+.section .content .more-link .svg-inline--fa,
+.section .content .more-link .fa-solid {
   margin-right: 5px;
   font-size: 14px;
   position: relative;
@@ -227,8 +213,6 @@ a.dotted-link:hover {
 }
 
 .latest .item .project-image:hover {
-  -webkit-opacity: 0.8;
-  -moz-opacity: 0.8;
   opacity: 0.8;
 }
 
@@ -243,7 +227,6 @@ a.dotted-link:hover {
 .latest .featured .title {
   font-size: 20px;
   margin-bottom: 5px;
-  font-size: 20px;
 }
 
 .latest .featured .summary {
@@ -291,10 +274,7 @@ a.dotted-link:hover {
   text-transform: uppercase;
   color: #fff;
   background-color: #479FC8;
-  -webkit-transform: rotate(45deg) translate3d(0, 0, 0);
-  -moz-transform: rotate(45deg) translate3d(0, 0, 0);
-  -ms-transform: rotate(45deg) translate3d(0, 0, 0);
-  -o-transform: rotate(45deg) translate3d(0, 0, 0);
+  transform: rotate(45deg) translate3d(0, 0, 0);
 }
 
 .latest .has-ribbon .ribbon .text:before, .latest .has-ribbon .ribbon .text:after {
@@ -385,18 +365,18 @@ a.dotted-link:hover {
 .ghfeed *,
 .ghfeed *:before,
 .ghfeed *:after {
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
   box-sizing: content-box;
 }
 
 /* Info Section */
-.info .svg-inline--fa {
+.info .svg-inline--fa,
+.info .fa-solid {
   margin-right: 15px;
   color: #ccd1d6;
 }
 
-.info .svg-inline--fa.fa-envelope-o {
+.info .svg-inline--fa.fa-envelope-o,
+.info .fa-solid.fa-envelope-o {
   font-size: 14px;
 }
 
@@ -425,7 +405,7 @@ a.dotted-link:hover {
   font-size: 16px;
   position: relative;
   margin-top: 0;
-  margin-bottom: 10;
+  margin-bottom: 10px;
 }
 
 .skills .skillset .level-title .level-label {
@@ -448,7 +428,8 @@ a.dotted-link:hover {
   background: #66cb8c;
 }
 
-.skills .svg-inline--fa {
+.skills .svg-inline--fa,
+.skills .fa-solid {
   margin-right: 3px;
   position: relative;
   top: -1px;
@@ -475,7 +456,8 @@ a.dotted-link:hover {
   margin-bottom: 0;
 }
 
-.testimonials .item .quote .svg-inline--fa {
+.testimonials .item .quote .svg-inline--fa,
+.testimonials .item .quote .fa-solid {
   color: #79d19a;
   margin-right: 15px;
 }
@@ -539,7 +521,8 @@ a.dotted-link:hover {
   margin-bottom: 0;
 }
 
-.languages .item .svg-inline--fa {
+.languages .item .svg-inline--fa,
+.languages .item .fa-solid {
   color: #79d19a;
 }
 
@@ -574,7 +557,8 @@ a.dotted-link:hover {
   margin-bottom: 10px;
 }
 
-.list ul li .svg-inline--fa {
+.list ul li .svg-inline--fa,
+.list ul li .fa-solid {
   margin-right: 5px;
 }
 
@@ -591,7 +575,8 @@ a.dotted-link:hover {
   margin-bottom: 10px;
 }
 
-.credits ul li .svg-inline--fa {
+.credits ul li .svg-inline--fa,
+.credits ul li .fa-solid {
   margin-right: 5px;
   position: relative;
   top: -2px;
@@ -601,7 +586,8 @@ a.dotted-link:hover {
   color: #778492;
 }
 
-.credits ul li a .svg-inline--fa {
+.credits ul li a .svg-inline--fa,
+.credits ul li a .fa-solid {
   color: #b0b7bf;
 }
 
