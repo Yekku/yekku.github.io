@@ -22,6 +22,7 @@ Thumbs.db
 # Build output
 /dist
 /tmp
+.astro/
 
 # Sass cache
 /.sass-cache

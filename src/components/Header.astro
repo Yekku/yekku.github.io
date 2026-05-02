@@ -1,0 +1,30 @@
+---
+const socials = [
+  { href: 'https://www.linkedin.com/in/yevgen-liukkonen', icon: 'fa-linkedin-in', label: 'LinkedIn' },
+  { href: 'https://github.com/Yekku', icon: 'fa-github-alt', label: 'GitHub' },
+  { href: 'https://stackoverflow.com/users/9908945/yekku?tab=profile', icon: 'fa-stack-overflow', label: 'Stack Overflow' },
+  { href: 'https://codepen.io/Yekku/', icon: 'fa-codepen', label: 'CodePen' },
+];
+---
+
+<header class="header">
+  <div class="container">
+    <img class="profile-image img-fluid" src="/assets/images/profile.png" alt="Yekku" />
+    <div class="profile-content">
+      <h1 class="name">Yevgen Liukkonen</h1>
+      <h2 class="desc">Software Developer &amp; Solution Architect</h2>
+      <ul class="social">
+        {socials.map((s) => (
+          <li>
+            <a href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}>
+              <i class={`fa-brands ${s.icon}`}></i>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <a class="btn btn-cta-primary" href="mailto:yevgen.liukkonen@gmail.com">
+      <i class="fa-solid fa-paper-plane"></i> Contact Me
+    </a>
+  </div>
+</header>

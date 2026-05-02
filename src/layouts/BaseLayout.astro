@@ -1,0 +1,70 @@
+---
+// Self-hosted fonts (replaces Google Fonts CDN)
+import '@fontsource/lato/300.css';
+import '@fontsource/lato/400.css';
+import '@fontsource/montserrat/400.css';
+import '@fontsource/montserrat/700.css';
+
+// Self-hosted vendor CSS (bundled by Vite into one stylesheet)
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import 'github-calendar/dist/github-calendar-responsive.css';
+
+// Self-hosted vendor JS (?url emits file as a static asset and gives us its URL,
+// so we can keep `is:inline` and preserve the window-global behavior main.js relies on).
+import bootstrapJsUrl from 'bootstrap/dist/js/bootstrap.bundle.min.js?url';
+import githubCalendarJsUrl from 'github-calendar/dist/github-calendar.min.js?url';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const {
+  title = 'Yevgen Liukkonen - Software Developer & Solution Architect',
+  description = 'Yevgen Liukkonen — Software Developer & Solution Architect at Tamtron mScales. Full-stack: TypeScript/Angular, Node.js/NestJS, PostgreSQL, AWS, Kubernetes.',
+} = Astro.props;
+
+const siteUrl = 'https://yekku.github.io/';
+const ogImage = 'https://yekku.github.io/assets/images/profile.png';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{title}</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="google-site-verification" content="wURn6kCrBfRtiaFb3yLlY5zJPBuoKSEPFlfJ6dSqg18" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Preload key assets -->
+    <link rel="preload" as="image" href="/assets/images/profile.png" />
+
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="/assets/css/styles.css" />
+  </head>
+
+  <body>
+    <slot />
+
+    <!-- Bootstrap 5.3 JS Bundle (self-hosted, includes Popper) -->
+    <script is:inline src={bootstrapJsUrl}></script>
+    <!-- github calendar plugin (self-hosted) -->
+    <script is:inline src={githubCalendarJsUrl}></script>
+    <!-- custom js -->
+    <script is:inline src="/assets/js/main.js"></script>
+  </body>
+</html>
