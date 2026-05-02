@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Sidebar from '../components/Sidebar.astro';
+
+const whatIDo = [
+  {
+    title: 'Full-stack feature delivery',
+    body: 'End-to-end ownership of multi-week features: discovery, RFC authoring, scope planning, implementation across a TypeScript/Angular frontend and a Node.js/NestJS + PostgreSQL backend, feature-flagged rollout, and production operation.',
+  },
+  {
+    title: 'Cloud infrastructure & deployment',
+    body: 'Designing and operating production stacks on AWS (EKS, S3, CloudFront, ALB, SQS, DynamoDB) with Helm, Terraform, and Cloudflare. Comfortable owning the path from local dev to production rollout.',
+  },
+  {
+    title: 'Production reliability & observability',
+    body: 'Diagnosing and fixing reliability issues in Node.js services on Kubernetes — memory pressure, OOMs, resource limits, flaky CI — using Datadog for observability and targeted refactors to remove root causes.',
+  },
+  {
+    title: 'IoT & edge integrations',
+    body: 'Building integrations between cloud services and physical industrial devices over MQTT and AWS IoT Core, including legal-compliance features for regulated markets.',
+  },
+];
+---
+
+<BaseLayout
+  title="Yevgen Liukkonen - Software Developer & Solution Architect"
+  description="Yevgen Liukkonen — Software Developer & Solution Architect at Tamtron mScales. Full-stack: TypeScript/Angular, Node.js/NestJS, PostgreSQL, AWS, Kubernetes."
+>
+  <Header />
+
+  <div class="container sections-wrapper">
+    <div class="row">
+      <div class="primary col-lg-8 col-12">
+        <section class="about section">
+          <div class="section-inner">
+            <h2 class="heading">About Me</h2>
+            <div class="content">
+              <p>
+                Full-stack developer and solution architect with 7+ years building and operating
+                a production weighing-cloud platform. I work across the stack — TypeScript and Angular on the
+                frontend, Node.js with NestJS and PostgreSQL on the backend, and AWS with Kubernetes for delivery.
+                Comfortable owning features end-to-end: writing RFCs, leading scope, shipping, and operating what I ship.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="experience section">
+          <div class="section-inner">
+            <h2 class="heading">Work Experience</h2>
+            <div class="content">
+              <div class="item">
+                <h3 class="title">
+                  Software Developer &amp; Solution Architect -
+                  <span class="place">
+                    <a href="https://www.mscales.com/" target="_blank" rel="noopener noreferrer">Tamtron Precision Oy - mScales</a>
+                  </span>
+                  <span class="year">(2019 - Present)</span>
+                </h3>
+                <p>mScales is a production weighing cloud-service. Part of the core development team, growing into a solution architect role across frontend, backend, and infrastructure.</p>
+                <ul>
+                  <li>Lead end-to-end features across TypeScript/Angular, Node.js/NestJS, and PostgreSQL — from RFC to scope to production rollout</li>
+                  <li>Drive architecture decisions: authored RFCs and scope plans for service extraction, deployment redesigns, and feature rollouts</li>
+                  <li>Operate the production stack on AWS (EKS, S3, CloudFront, SQS, DynamoDB, IoT Core/MQTT) with Helm, Terraform, and Cloudflare</li>
+                  <li>Diagnose and fix production reliability issues (memory pressure, OOM crashes, CI flakiness) using Datadog and targeted refactors</li>
+                  <li>Build IoT-edge integrations for industrial scales, including legal-compliance features for the German market</li>
+                </ul>
+              </div>
+
+              <div class="item">
+                <h3 class="title">
+                  Self Employed - <span class="place">Freelancer</span>
+                  <span class="year">(2017 - 2019)</span>
+                </h3>
+                <p>I had been setting up websites for myself and friends.</p>
+                <ul>
+                  <li>Website development</li>
+                  <li>Custom pages</li>
+                  <li>E-commerce shop development</li>
+                  <li>Wordpress themes</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="latest section">
+          <div class="section-inner">
+            <h2 class="heading">What I Do</h2>
+            <div class="content">
+              {whatIDo.map((item, i) => (
+                <Fragment>
+                  <div class="item">
+                    <h3 class="title">{item.title}</h3>
+                    <p>{item.body}</p>
+                  </div>
+                  {i < whatIDo.length - 1 && <hr class="divider" />}
+                </Fragment>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section class="github section">
+          <div class="section-inner">
+            <h2 class="heading">My GitHub</h2>
+            <div id="github-graph" class="github-graph"></div>
+            <div id="ghfeed" class="ghfeed"></div>
+            <p class="mt-3">
+              <a class="more-link" href="https://github.com/Yekku" target="_blank" rel="noopener noreferrer">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>View on GitHub
+              </a>
+            </p>
+          </div>
+        </section>
+      </div>
+
+      <div class="secondary col-lg-4 col-12">
+        <Sidebar />
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container text-center">
+      <small class="copyright">
+        Designed with <i class="fa-solid fa-heart"></i> by
+        <a href="https://themes.3rdwavemedia.com" target="_blank" rel="noopener noreferrer">Xiaoying Riley</a> for developers
+      </small>
+    </div>
+  </footer>
+</BaseLayout>

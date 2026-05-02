@@ -1,0 +1,64 @@
+---
+const skills = [
+  {
+    title: 'TypeScript & Angular',
+    level: 'Expert',
+    levelTooltip: 'Daily driver on the mScales frontend',
+    percent: 96,
+  },
+  {
+    title: 'Node.js & NestJS',
+    level: 'Expert',
+    levelTooltip: 'Backend services, APIs, and shared libraries',
+    percent: 95,
+  },
+  {
+    title: 'JavaScript, HTML5 & CSS3',
+    level: 'Expert',
+    levelTooltip: 'Foundational web stack',
+    percent: 95,
+  },
+  {
+    title: 'PostgreSQL & Python',
+    level: 'Pro',
+    levelTooltip: 'Production data layer + scripting',
+    percent: 88,
+  },
+  {
+    title: 'AWS, Kubernetes (Helm) & Terraform',
+    level: 'Pro',
+    levelTooltip: 'EKS, S3, CloudFront, SQS, DynamoDB, IoT Core',
+    percent: 85,
+  },
+  {
+    title: 'Docker, Ansible & Datadog',
+    level: 'Pro',
+    levelTooltip: 'Containers, config management, and production observability',
+    percent: 82,
+  },
+];
+---
+
+<aside class="skills aside section">
+  <div class="section-inner">
+    <h2 class="heading">Skills</h2>
+    <div class="content">
+      <p class="intro">
+        Full-stack developer with 7+ years of production experience. I work daily across
+        TypeScript/Angular, Node.js/NestJS, PostgreSQL, and AWS. Comfortable owning features
+        from RFC to production rollout.
+      </p>
+
+      <div class="skillset">
+        {skills.map((s) => (
+          <div class="item">
+            <h3 class="level-title">{s.title}<span class="level-label" data-bs-toggle="tooltip" data-bs-placement="left" title={s.levelTooltip}><i class="fa-solid fa-circle-info"></i>{s.level}</span></h3>
+            <div class="level-bar">
+              <div class="level-bar-inner" data-level={`${s.percent}%`}></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</aside>

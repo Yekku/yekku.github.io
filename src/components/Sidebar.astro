@@ -1,0 +1,135 @@
+---
+import Skills from './Skills.astro';
+
+const languages = [
+  { name: 'English', level: 'Professional Proficiency', stars: 3, half: true },
+  { name: 'Russian', level: 'Native Speaker', stars: 5, half: false },
+  { name: 'Finnish', level: 'Professional Proficiency', stars: 4, half: false },
+];
+
+const education = [
+  {
+    title: 'Software Development, Datanom',
+    school: 'Helsinki Business College',
+    year: '2019',
+    href: null,
+  },
+  {
+    title: 'Open University, Full Stack open',
+    titleLink: 'https://fullstackopen.com/en/',
+    school: 'University of Helsinki',
+    year: '2018',
+  },
+];
+
+const music = [
+  { href: 'https://youtu.be/qRLCwKosN_c', label: 'Music for programming' },
+  { href: 'https://youtu.be/fEvM-OUbaKs', label: 'Coffee Jazz Music - Chill Out Lounge Jazz Music Radio' },
+  { href: 'https://youtu.be/3SakCDX_fGA', label: 'Relaxing JAZZ For Work & Study - Smooth Piano & Sax JAZZ Radio' },
+];
+---
+
+<aside class="info aside section">
+  <div class="section-inner">
+    <h2 class="heading visually-hidden">Basic Information</h2>
+    <div class="content">
+      <ul class="list-unstyled">
+        <li>
+          <i class="fa-solid fa-location-dot"></i><span class="visually-hidden">Location:</span>Lahti, Finland
+        </li>
+        <li>
+          <i class="fa-solid fa-envelope"></i><span class="visually-hidden">Email:</span>
+          <a href="mailto:yevgen.liukkonen@gmail.com">yevgen.liukkonen@gmail.com</a>
+        </li>
+        <li>
+          <i class="fa-solid fa-link"></i><span class="visually-hidden">Website:</span>
+          <a href="https://yekku.github.io/" target="_blank" rel="noopener noreferrer">https://yekku.github.io/</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</aside>
+
+<Skills />
+
+<aside class="testimonials aside section">
+  <div class="section-inner">
+    <h2 class="heading">Testimonials</h2>
+    <div class="content">
+      <div class="item">
+        <blockquote class="quote">
+          <p>
+            <i class="fa-solid fa-quote-left"></i>Yekku is an excellent software developer and he is passionate about what he does. You can totally count on him to deliver your projects!
+          </p>
+        </blockquote>
+        <p class="source">
+          <span class="name">Anssi Nurminen</span><br />
+          <span class="title">Founder at Muhkia Oy</span>
+        </p>
+      </div>
+
+      <p>
+        <a class="more-link" href="https://www.linkedin.com/in/yevgen-liukkonen" target="_blank" rel="noopener noreferrer">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>More on Linkedin
+        </a>
+      </p>
+    </div>
+  </div>
+</aside>
+
+<aside class="education aside section">
+  <div class="section-inner">
+    <h2 class="heading">Education</h2>
+    <div class="content">
+      {education.map((e) => (
+        <div class="item">
+          <h3 class="title">
+            <i class="fa-solid fa-graduation-cap"></i>{' '}
+            {e.titleLink
+              ? <Fragment>Open University, <a href={e.titleLink} target="_blank" rel="noopener noreferrer">Full Stack open</a></Fragment>
+              : e.title}
+          </h3>
+          <h4 class="university">{e.school} <span class="year">({e.year})</span></h4>
+        </div>
+      ))}
+    </div>
+  </div>
+</aside>
+
+<aside class="languages aside section">
+  <div class="section-inner">
+    <h2 class="heading">Languages</h2>
+    <div class="content">
+      <ul class="list-unstyled">
+        {languages.map((l) => (
+          <li class="item">
+            <span class="title"><strong>{l.name}:</strong></span>
+            <span class="level">
+              {l.level}
+              {Array.from({ length: l.stars }).map(() => (
+                <Fragment> <i class="fa-solid fa-star"></i></Fragment>
+              ))}
+              {l.half && <Fragment> <i class="fa-solid fa-star-half-stroke"></i></Fragment>}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</aside>
+
+<aside class="list music aside section">
+  <div class="section-inner">
+    <h2 class="heading">Favourite coding music</h2>
+    <div class="content">
+      <ul class="list-unstyled">
+        {music.map((m) => (
+          <li>
+            <i class="fa-solid fa-headphones"></i>{' '}
+            <a href={m.href} target="_blank" rel="noopener noreferrer">{m.label}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</aside>
